@@ -1,0 +1,9 @@
+---
+# tasks file for wifi
+- name: WIFI | disable randomized MAC-addresses to all WiFi connections
+  template:
+    src: 00-macrandomize.j2
+    dest: /etc/NetworkManager/conf.d/00-macrandomize.conf
+    owner: root
+    group: root
+    mode: "u=rw,g=r,o=r"
