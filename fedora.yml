@@ -1,9 +1,24 @@
+# ansible-playbook -i hosts fedora.yml -K
 ---
 - name: Configure Fedora WorkStation settings
-  hosts: localhost
+  hosts: all
+  gather_facts: false
 
   become: true
   become_user: root
 
-  roles:
-    - wifi
+  tasks:
+
+  - include_role:
+      name: wifi
+    vars:
+      wifi_default_randomize: true
+      wifi_network_no_randomize: "Dragonite"
+
+  - include_role:
+      name: baseline
+    vars:
+      baseline_packages:
+        - vim
+        - ansible
+        - libselinux-python

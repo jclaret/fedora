@@ -1,0 +1,8 @@
+---
+# tasks file for baseline
+- name: BASELINE | install packages
+  dnf:
+    name: "{{ item }}"
+    state: present
+  loop:
+    - "{{ baseline_packages }}"
