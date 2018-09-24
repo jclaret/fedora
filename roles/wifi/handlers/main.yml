@@ -1,0 +1,6 @@
+---
+# handlers file for wifi
+- name: restart_networkmanager
+  systemd:
+    name: NetworkManager
+    state: restarted

@@ -1,0 +1,24 @@
+---
+# tasks file for baseline
+- name: BASELINE | install packages
+  dnf:
+    name: "{{ item }}"
+    state: present
+    enablerepo: "{{ baseline_repos }}"
+  loop:
+    - "{{ baseline_packages }}"
+
+- name: BASELINE | install pip
+  become: false
+  pip:
+    name: "{{ item }}"
+    extra_args: "--user"
+  with_items:
+    - "{{ baseline_pip }}"
+
+- name: BASELINE | install gem
+  become: false
+  gem:
+    name: "{{ item }}"
+  with_items:
+    - "{{ baseline_gem }}"

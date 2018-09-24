@@ -1,0 +1,18 @@
+---
+# tasks file for wifi
+# https://fedoramagazine.org/randomize-mac-address-nm/
+
+- name: WIFI | randomized MAC-addresses to all WiFi connections
+  template:
+    src: 00-macrandomize.j2
+    dest: /etc/NetworkManager/conf.d/00-macrandomize.conf
+    owner: root
+    group: root
+    mode: "u=rw,g=r,o=r"
+  notify: restart_networkmanager
+  when: wifi_default_randomize
+
+- name: WIFI | MAC- randomize Wifi "{{ wifi_no_randomize }}" disabled
+  shell: nmcli con mod "{{ wifi_network_no_randomize }}" 802-11-wireless.cloned-mac-address permanent
+  notify: restart_networkmanager
+  when: wifi_network_no_randomize is defined

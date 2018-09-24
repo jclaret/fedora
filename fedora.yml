@@ -18,7 +18,53 @@
   - include_role:
       name: baseline
     vars:
+      baseline_repos: google-chrome
+      baseline_gem:
+        - fpm
+      baseline_pip:
+        - powerline-gitstatus
+        - ovirt-engine-sdk-python
       baseline_packages:
         - vim
+        - ruby-devel 
+        - make 
+        - rpm-build
+        - libffi-devel
+        - libcurl-devel
+        - pycurl
+        - gcc
+        - redhat-rpm-config
+        - python-devel 
+        - libxml-devel
+        - libxslt-devel
+        - libxml++-devel
+        - libxml2-devel
         - ansible
         - libselinux-python
+        - fedora-workstation-repositories
+        - google-chrome-stable
+        - terminator
+        - virt-manager
+        - jq
+        - tmux
+        - screenfetch
+        - htop
+        - gnome-tweak-tool
+        - guake
+        - vagrant
+        - git
+        - python-requests
+        - python-pip
+        - gitg
+        - meld
+        - vim-powerline
+        - tmux-powerline
+        - powerline
+        - powerline-fonts
+        - tilix
+        - screen
+        - sshuttle
+        - tigervnc
+        - firefox
+        - keepass
+        - icedtea-web
